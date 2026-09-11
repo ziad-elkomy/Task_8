@@ -1,0 +1,44 @@
+delete vs truncate
+
+هنقارن بين الdelete , truncate بس اول حاجة نعرف ان دول بستخدمهم في غرض واحد و هو الحذف من الdatabase و هنشوف الفرق دلوقتي من حيث عدة حاجات
+
+1- من حيث الcategory
+
+الdelete تقع تحت category ال  DML لانها بتأثر على الrecords اللي في الTable
+
+الtruncate تقع تحت category ال  DDL لانها بتأثر على الTable كله بعيدا عن البيانات اللي فيه
+
+2- من حيث المهمة
+
+الdelete بتحذف record معين من الtable عن طريق where اللي من غير where هيحذف البيانات كلها
+
+اما ال truncate بتحذف كل الrecords في الtable مرة واحدة و مبنستخدمش معاها where
+
+طب ايه الفرق طالما انا اقدر احذف كل البيانات عن طريق الdelete ليه استخدم الtruncate ده هيوضح في النقطة الثالثة
+
+3- من حيث الأداء
+
+الtruncate اداءها احسن من الdelete طب ليه ؟
+
+لان الdelete بتمشي سطر ب سطر تحذف record record اما ال truncate بتحذف الtable مرة واحدة مبيحتاجش انه يمر على سطر سطر لكن برضو انا في حاجة للdelete لو طبعا عايز احذف حاجة معينة عن طريق الwhere
+
+4- من حيث الidentity value
+
+لما اعمل delete ال identity value بتفضل على اخر قيمة
+
+اما الtruncate ال identity value بترجع لاول قيمة اللي هي 1
+
+5- من حيث الrollback
+
+اقدر اعمل rollback لو بستخدم الdelete جوة transaction
+
+انما الtruncate ممكن اعمل rollback في بعض الdatabases و في البعض الاخر مقدرش اعمل rollback لانها من الDDL فبتعملها commit على طول
+
+6- من حيث الsql commands
+
+Delete from [table_name]
+where [condition] (optional but mandatory)
+
+----------------------------------------------------------
+
+truncate table [table_name]
