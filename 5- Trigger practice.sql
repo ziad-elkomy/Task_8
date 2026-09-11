@@ -17,7 +17,7 @@ on Sales.employees
 after insert
 as begin
 insert into EmployeeLog(employee_id, [action]) 
-select i.employee_id , 'Employee with '+ cast(i.employee_id as varchar(10)) +'added'
+select i.employee_id , 'Employee with '+ cast(i.employee_id as varchar(10)) +' is added'
 from inserted i
 end
 go

@@ -70,7 +70,7 @@ order by salary desc
 -- 15. Show the first 5 employees ordered by "last_name" in ascending order
 
 select top 5 * from Sales.employees
-order by first_name
+order by last_name
 
 -- 16. Display employees with a salary greater than 55000 and hired in 2020.
 
